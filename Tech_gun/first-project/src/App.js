@@ -1,4 +1,5 @@
-import ExpenseItem from './components/ExpenseItem'
+import ExpenseItem from './components/Expenses/ExpenseItem'
+import Expense from "./components/Expenses/Expense"
 
 function App() {
   let expenses = [
@@ -7,30 +8,34 @@ function App() {
       title: 'school Fee',
       amount: 250,
       date: new Date(2021, 5, 12)
-    },
+    },  
     {
-      id: 'e2',
+      id: 'e3',
       title: 'rent Fee',
       amount: 400,
-      date: new Date(2021, 2, 6)
+      date: new Date(2021, 1, 6)
+    },
+    {
+      id: 'e3',
+      title: 'Food Fee',
+      amount: 100,
+      date: new Date(2021, 7, 6)
+    },
+    {
+      id: 'e4',
+      title: 'rurist Fee',
+      amount: 750,
+      date: new Date(2022, 2, 4)
     },
   ]
 
   return (
     <div>
       <h2>Let's get started </h2>
-      <ExpenseItem 
-        date={expenses[0].date} 
-        title={expenses[0].title} 
-        amount={expenses[0].amount} >
-      </ExpenseItem>
-      <ExpenseItem 
-        date={expenses[1].date} 
-        title={expenses[1].title} 
-        amount={expenses[1].amount} >
-      </ExpenseItem>
+      <Expense item={expenses} />
     </div>
   );
 }
+
 
 export default App;

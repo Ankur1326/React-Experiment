@@ -1,11 +1,13 @@
 import React from "react";
-import DogCard from "./DogCard";
+// import DogCard from "./DogCard";
 import Counter from './Counter'
-c 
+import LoginLogout from "./LoginLogout";
+ 
 function App() {
   return (
     <div>
     <Counter></Counter>
+    <LoginLogout />
     </div>
   );
 }

@@ -8,7 +8,7 @@ function Grid({ numberOfCards }) {
     const [turn, setTurn] = useState(true); // true=> O, false => X
 
     const [winner, setWinner] = useState(null); 
-    function play() {
+    function play(index) {
         if (turn == true) {
             board[index] = "O"
         } else {

@@ -1,10 +1,11 @@
+import Pokedex from './components/pokedex/pokedex'
 import './App.css'
-import 
+// import 
 
 function App() {
   return (
     <>
-      Hello
+      <Pokedex />
     </>
   )
 }

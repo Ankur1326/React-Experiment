@@ -29,7 +29,7 @@ function App() {
       date: new Date(2022, 2, 4)
     },
   ]
-
+ 
   return (
     <div>
       <NewExpense />

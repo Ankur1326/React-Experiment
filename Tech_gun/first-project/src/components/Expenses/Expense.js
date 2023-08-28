@@ -2,9 +2,21 @@ import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
 
 function Expense(props) {
+
+    // console.log("Expense.js : ", props.item);
+    
     return (
         <Card>
-            <ExpenseItem
+            {
+                props.items.map((item) => (
+                    <ExpenseItem
+                    date={item.date}
+                    title={item.title}
+                    amount={item.amount} />
+                    
+                ))
+            }
+            {/* <ExpenseItem
                 date={props.item[0].date}
                 title={props.item[0].title}
                 amount={props.item[0].amount} >
@@ -23,7 +35,7 @@ function Expense(props) {
                 date={props.item[3].date}
                 title={props.item[3].title}
                 amount={props.item[3].amount} >
-            </ExpenseItem>
+            </ExpenseItem> */}
         </Card>
     )
 }

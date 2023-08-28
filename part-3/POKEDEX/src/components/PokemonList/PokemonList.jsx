@@ -19,7 +19,7 @@ function PokemonList() {
       setPokedexUrl(true)
         const response = await axios.get(POKEDEX_URL) // this downloads list of 20 pokemons
         const pokemonResults = response.data.results; // we get the array of pokemons from result
-        console.log(response.data);
+        console.log("response.data : ", response.data);
         setNextURl(response.data.next)
         setPrevURl(response.data.previous)
 
@@ -32,7 +32,7 @@ function PokemonList() {
         // console.log(pokemonData);
 
         // now iterate on the data of each pokemon, and extract id, name, image, types
-        const res = pokemonData.map((pokeData) => {
+        const pokeListResult = pokemonData.map((pokeData) => {
           const pokemon = pokeData.data;
           return {
             id: pokemon.id,
@@ -41,9 +41,10 @@ function PokemonList() {
             types: pokemon.types
           } 
         });
-        console.log(res);
-        console.log(pokemonList);
-        setPokemonList(res)
+        // console.log(res);
+        // console.log(pokemonList);
+        console.log(pokeListResult);
+        setPokemonList(pokeListResult)
         setIsLoading(false)
     }
     
@@ -56,7 +57,7 @@ function PokemonList() {
           <div>Pokemon List</div>
           <div className="pokemon-wrapper">
             {(isLoading) ? 'Loading....' : 
-              pokemonList.map((p) => <Pokemon name={p.name} image={p.image} key={p.id} />)
+              pokemonList.map((p) => <Pokemon name={p.name} image={p.image} key={p.id} id={p.id}/>)
             }
           </div>  
           <div className="control-btns">

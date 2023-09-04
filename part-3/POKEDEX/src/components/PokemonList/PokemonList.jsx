@@ -4,13 +4,13 @@ import Pokemon from "../Pokemon/Pokemon";
 import "./PokemonList.css"
 
 
-const POKEDEX_URL = 'https://pokeapi.co/api/v2/pokemon'
+// const POKEDEX_URL = 'https://pokeapi.co/api/v2/pokemon'
 function PokemonList() {
 
   const [pokemonList, setPokemonList] = useState([])
   const [isLoading, setIsLoading] = useState(true)
-
-  const [POKEDEX_URL, setPokedexUrl] = useState("https://pokeapi.co/api/v2/pokemon") //https://pokeapi.co/api/v2/pokemon
+  
+  const [POKEDEX_URL, setPokedexUrl] = useState("https://pokeapi.co/api/v2/pokemon/") //https://pokeapi.co/api/v2/pokemon
 
   const [nextUrl, setNextURl] = useState("")
   const [prevUrl, setPrevURl] = useState("")
@@ -58,7 +58,7 @@ function PokemonList() {
           <div className="pokemon-wrapper">
             {(isLoading) ? 'Loading....' : 
               pokemonList.map((p) => <Pokemon name={p.name} image={p.image} key={p.id} id={p.id}/>)
-            }
+              }
           </div>  
           <div className="control-btns">
               <button disabled={prevUrl == null} onClick={() => setPokedexUrl(prevUrl)}>Prev</button>

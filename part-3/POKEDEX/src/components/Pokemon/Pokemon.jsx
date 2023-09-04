@@ -4,7 +4,7 @@ import "./Pokemon.css";
 function Pokemon(props) {
     return (
         <div className="pokemon-card">
-            <Link to="/pokemon/2">
+            <Link to={`/pokemon/${props.id}`}>
                 <div>{props.name}</div>
                 <div><img src={props.image}/></div>
             </Link>

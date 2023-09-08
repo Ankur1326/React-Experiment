@@ -15,7 +15,12 @@ function App() {
 
   const options = Object.keys(currencyInfo)
   
-  const swap = () => 
+  const swap = () => {
+    setFrom(to)
+    setTo(from)
+    setConvertedAmount(amount)
+    setAmount(convertedAmount)
+  }
   
   return (
     <>

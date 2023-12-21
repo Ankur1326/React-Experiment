@@ -20,7 +20,7 @@ function PokemonDetails() {
     }, [])
     
     return (
-        <div className="pokemon-details-wrapper">
+        <div className="pokemon-details-wrapper w-1/3 flex flex-col items-center m-auto text-center">
             <div className="pokemon-details-name">name: {pokemon.name}</div>
             <img className="pokemon-details-image" src={pokemon.image} />
             <div>Height : {pokemon.height}</div>

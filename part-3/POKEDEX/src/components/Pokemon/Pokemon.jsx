@@ -3,10 +3,10 @@ import "./Pokemon.css";
 
 function Pokemon(props) {
     return (
-        <div className="pokemon-card">
+        <div className="pokemon-card border">
             <Link to={`/pokemon/${props.id}`}>
                 <div>{props.name}</div>
-                <div><img src={props.image}/></div>
+                <div><img className="h-[240px]" src={props.image}/></div>
             </Link>
         </div>
     )

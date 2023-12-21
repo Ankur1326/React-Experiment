@@ -2,8 +2,7 @@ import Pokemon from "../Pokemon/Pokemon";
 import "./PokemonList.css"
 import usePokemonList from "../hooks/usePokemonList";
 
-// const POKEDEX_URL = 'https://pokeapi.co/api/v2/pokemon'
-function PokemonList() {
+function PokemonList() {  
 
   const {pokemonListState, setPokemonListState} = usePokemonList();
 

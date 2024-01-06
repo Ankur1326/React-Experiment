@@ -5,17 +5,19 @@ import { DevTool } from "@hookform/devtools";
 let randerCount = 0;
 
 function YoutubeForm() {
-  const { register, control, handleSubmit, formState } = useForm({
+  const { register, control, handleSubmit, formState, watch } = useForm({
     defaultValues: {
-      username: "",
-      email: "",
-      channel: "",
+      username: "Ankur",
+      email: "Jon@gmail.com",
+      channel: "chai-aur-code",
       social: {
-        twitter: "",
-        facebook: "",
+        twitter: "tw",
+        facebook: "fb",
       },
-      phoneNumbers: ["", ""],
-      phNumbers: [{ number: "" }],
+      phoneNumbers: ["1234", "0982740985"],
+      phNumbers: [{ number: "97987" }],
+      age: 23,
+      dob: new Date(),
     },
   });
 
@@ -34,9 +36,12 @@ function YoutubeForm() {
     console.log("Form submitted : ", data);
   };
 
+  const watchUsername = watch(["username", "email"])
+  
   return (
     <div>
       <h1>YouTube Form: {randerCount / 2}</h1>
+      <h2>Watched value : {watchUsername}</h2>
 
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <div>
@@ -57,7 +62,7 @@ function YoutubeForm() {
             type="email"
             id="email"
             {...register("email", {
-              // required: "Email is required",
+              required: "Email is required",
               pattern: {
                 value: "", // regexExp
                 message: "Invalid email format",
@@ -73,7 +78,6 @@ function YoutubeForm() {
           />
           <p className="error">{errors.email?.message}</p>
         </div>
-
         <div>
           <label htmlFor="channel">Channel</label>
           <input
@@ -85,17 +89,14 @@ function YoutubeForm() {
           />
           <p className="error">{errors.channel?.message}</p>
         </div>
-
         <div>
           <label htmlFor="twitter">Twitter</label>
           <input type="text" id="twitter" {...register("social.twitter")} />
         </div>
-
         <div>
           <label htmlFor="facebook">Facebook</label>
           <input type="text" id="facebook" {...register("social.facebook")} />
         </div>
-
         <div>
           <label htmlFor="primary-phone">Primary Phone Number</label>
           <input
@@ -104,7 +105,6 @@ function YoutubeForm() {
             {...register("phoneNumbers.0")}
           />
         </div>
-
         <div>
           <label htmlFor="secondary-phone">Secondary Phone Number</label>
           <input
@@ -114,6 +114,7 @@ function YoutubeForm() {
           />
         </div>
 
+        {/* How to add dynamic field in our form ************ */}
         <div>
           <label>List of phone numbers</label>
           <div>
@@ -124,7 +125,7 @@ function YoutubeForm() {
                     type="text"
                     {...register(`phNumbers.${index}.number`)}
                   />
-                  {index>0 && (
+                  {index > 0 && (
                     <button
                       type="button"
                       onClick={() => {
@@ -146,6 +147,33 @@ function YoutubeForm() {
               Add Phone number
             </button>
           </div>
+        </div>
+
+        {/* Numberic and date values ***************** */}
+        <div>
+          <label htmlFor="age">Age</label>
+          <input
+            type="number"
+            id="age"
+            {...register("age", {
+              valueAsNumber: true,
+              required: "Age is required",
+            })}
+          />
+          <p className="error">{errors.age?.message}</p>
+        </div>
+
+        <div>
+          <label htmlFor="dob">Date of birth</label>
+          <input
+            type="date"
+            id="dob"
+            {...register("dob", {
+              valueAsDate: true,
+              required: "dob is required",
+            })}
+          />
+          <p className="error">{errors.dob?.message}</p>
         </div>
 
         <button>Submit</button>

@@ -12,3 +12,4 @@ export const todosSlice = createSlice({
 });
 
 export const { addTodo, toggleTodo } = todosSlice.actions;
+
